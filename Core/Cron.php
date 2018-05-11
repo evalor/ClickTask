@@ -1,15 +1,15 @@
 <?php
 
-namespace eValor\click\Core;
+namespace eValor\cronTask\Core;
 
 use Cron\CronExpression;
-use eValor\click\Core\AbstractClass\CronRunner;
+use eValor\cronTask\Core\AbstractClass\CronRunner;
 
 /**
  * 计划任务管理类
  * Class Cron
  * @author  : evalor <master@evalor.cn>
- * @package eValor\click\Core
+ * @package eValor\cronTask\Core
  */
 class Cron
 {

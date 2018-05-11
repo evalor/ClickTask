@@ -12,12 +12,5 @@
     "require": {
         "dragonmantank/cron-expression": "^2.1",
         "easyswoole/swoole-ide-helper": "^1.02"
-    },
-    "autoload": {
-        "psr-4": {
-            "eValor\\click\\Core\\": "Core/",
-            "eValor\\click\\Runner\\": "Runner/",
-            "eValor\\click\\Account\\": "Account/"
-        }
     }
 }

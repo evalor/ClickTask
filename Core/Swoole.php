@@ -1,15 +1,12 @@
 <?php
 
-namespace eValor\click\Core;
-
-use eValor\click\Runner\MaterialFire;
-use eValor\click\Runner\ThousandPicture;
+namespace eValor\cronTask\Core;
 
 /**
  * 服务管理器
  * Class Swoole
  * @author  : evalor <master@evalor.cn>
- * @package eValor\click\Core
+ * @package eValor\cronTask\Core
  */
 class Swoole
 {

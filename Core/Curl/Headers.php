@@ -1,12 +1,12 @@
 <?php
 
-namespace eValor\click\Core\Curl;
+namespace eValor\cronTask\Core\Curl;
 
 /**
  * 创建HTTP请求头
  * Class Headers
  * @author  : evalor <master@evalor.cn>
- * @package eValor\click\Core\Curl
+ * @package eValor\cronTask\Core\Curl
  */
 class Headers
 {

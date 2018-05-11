@@ -1,12 +1,12 @@
 <?php
 
-namespace eValor\click\Core\Curl;
+namespace eValor\cronTask\Core\Curl;
 
 /**
  * HTTP Cookie Class
  * Class Cookie
  * @author  : evalor <master@evalor.cn>
- * @package eValor\click\Core\Curl
+ * @package eValor\cronTask\Core\Curl
  */
 class Cookie
 {

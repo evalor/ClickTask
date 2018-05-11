@@ -1,12 +1,12 @@
 <?php
 
-namespace eValor\click\Core\AbstractClass;
+namespace eValor\cronTask\Core\AbstractClass;
 
 /**
  * 定时任务执行者
  * Class CronRunner
  * @author  : evalor <master@evalor.cn>
- * @package eValor\click\Core
+ * @package eValor\cronTask\Core
  */
 abstract class CronRunner
 {

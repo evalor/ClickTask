@@ -1,7 +1,13 @@
 <?php
 
-namespace eValor\click\Core\Curl;
+namespace eValor\cronTask\Core\Curl;
 
+/**
+ * 随机UA生成器
+ * Class UAGenerate
+ * @author  : evalor <master@evalor.cn>
+ * @package eValor\cronTask\Core\Curl
+ */
 class UAGenerate
 {
     // 操作系统类型

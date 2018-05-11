@@ -1,6 +1,6 @@
 <?php
 
-namespace eValor\click\Core;
+namespace eValor\cronTask\Core;
 
 /**
  * 终端控制

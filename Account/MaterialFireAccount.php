@@ -1,12 +1,12 @@
 <?php
 
-namespace eValor\click\Account;
+namespace eValor\cronTask\Account;
 
 /**
  * 素材火账号
  * Class MaterialFireAccount
  * @author  : evalor <master@evalor.cn>
- * @package eValor\click\Account
+ * @package eValor\cronTask\Account
  */
 class MaterialFireAccount
 {

@@ -1,20 +1,20 @@
 <?php
 
-namespace eValor\click\Runner;
+namespace eValor\cronTask\Runner;
 
-use eValor\click\Account\MaterialFireAccount;
-use eValor\click\Core\AbstractClass\CronRunner;
-use eValor\click\Core\ConsoleWrite;
-use eValor\click\Core\Curl\Field;
-use eValor\click\Core\Curl\Headers;
-use eValor\click\Core\Curl\Request;
-use eValor\click\Core\Curl\UAGenerate;
+use eValor\cronTask\Account\MaterialFireAccount;
+use eValor\cronTask\Core\AbstractClass\CronRunner;
+use eValor\cronTask\Core\ConsoleWrite;
+use eValor\cronTask\Core\Curl\Field;
+use eValor\cronTask\Core\Curl\Headers;
+use eValor\cronTask\Core\Curl\Request;
+use eValor\cronTask\Core\Curl\UAGenerate;
 
 /**
  * 签到处理
  * Class MaterialFire
  * @author  : evalor <master@evalor.cn>
- * @package eValor\click\Runner
+ * @package eValor\cronTask\Runner
  */
 class MaterialFire extends CronRunner
 {
