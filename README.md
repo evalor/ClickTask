@@ -7,9 +7,13 @@
 - PHP 7.1 以上版本
 - Swoole 拓展版本不低于 1.9.23
 
+## 安装启动
+
+进入项目目录执行 `composer install` 安装依赖，命令行 `php Go` 启动调度脚本
+
 ## 为签到任务编写签到模板类
 
-为了便于管理 签到任务模板统一存放在 `Runner` 目录下，必须继承 `eValor\click\Core\AbstractClass` 模板类，代码逻辑见下方
+为了便于管理 签到任务模板统一存放在 `Runner` 目录下，必须继承 `eValor\click\Core\AbstractClass\CronRunner` 模板类，代码逻辑见下方
 
 ```php
 <?php
@@ -99,3 +103,7 @@ $CronClass->addCronTask('MaterialFire', '*/1 * * * *', $MaterialFire); // 每分
 - `eValor\click\Core\ConsoleWrite` 终端控制工具
 - `eValor\click\Core\Curl\UAGenerate` 生成UA标识符
 - `eValor\click\Core\Curl\Request` 封装请求操作
+
+## 联系作者
+
+QQ: 694050314
