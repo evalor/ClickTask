@@ -20,6 +20,6 @@ class Schedule extends CronSchedule
      */
     function schedule()
     {
-        $this->scheduler->addCronTask('MaterialFire', '*/1 * * * *', new MaterialFire(new MaterialFireAccount));
+        $this->scheduler->addCronTask('MaterialFire', '15 4 * * *', new MaterialFire(new MaterialFireAccount));
     }
 }

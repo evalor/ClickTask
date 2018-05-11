@@ -181,9 +181,13 @@ class ConsoleWrite
      */
     static function color($content = '', $frontColor = '', $backColor = '', $effect = '')
     {
-        $colors = "\e[{$frontColor}{$backColor}{$effect}";
-        $colors = rtrim($colors, ';') . 'm';
-        echo "{$colors}{$content}\e[0m";
+        if (DAEMONIZE) {
+            echo $content;
+        } else {
+            $colors = "\e[{$frontColor}{$backColor}{$effect}";
+            $colors = rtrim($colors, ';') . 'm';
+            echo "{$colors}{$content}\e[0m";
+        }
     }
 
     /**

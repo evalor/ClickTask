@@ -1,4 +1,4 @@
-#!/usr/bin/env -S-P/usr/local/bin:/usr/bin:${PATH} php
+#!/usr/bin/env php
 <?php
 
 namespace eValor\cronTask;
@@ -16,8 +16,10 @@ $loader->addPsr4('eValor\\cronTask\\', __DIR__ . DIRECTORY_SEPARATOR);
 // I18N 初始化
 Locale::set();
 
+// 框架初始化
+define('DAEMONIZE', true);
+
 // 欢迎界面
-ConsoleWrite::terminal_reset();
 ConsoleWrite::color("--------------------------------------\n");
 ConsoleWrite::color(' ' . Locale::translate('auto check in assistant') . "\n", ConsoleWrite::F_BLUE);
 ConsoleWrite::color(' ' . Locale::translate('start time') . ": " . date('Y-m-d H:i:s') . PHP_EOL, ConsoleWrite::F_GREEN);

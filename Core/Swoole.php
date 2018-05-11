@@ -21,22 +21,13 @@ class Swoole
     public function run(Cron $cron)
     {
         $this->cron = $cron;
+        $options = require __DIR__ . DIRECTORY_SEPARATOR . 'SwooleOptions.php';
         $server = new \swoole_websocket_server('0.0.0.0', 9501);
-        $server->on('start', [$this, 'onStart']);
         $server->on('request', [$this, 'onRequest']);
         $server->on('message', [$this, 'onMessage']);
         $server->on('workerstart', [$this, 'onWorkerStart']);
+        $server->set($options['MAIN_SERVER']['SETTING']);
         $server->start();
-    }
-
-    /**
-     * 服务启动时
-     * @param \swoole_server $server
-     * @author : evalor <master@evalor.cn>
-     */
-    public function onStart(\swoole_server $server)
-    {
-
     }
 
     /**
@@ -47,7 +38,13 @@ class Swoole
      */
     public function onRequest(\swoole_http_request $request, \swoole_http_response $response)
     {
-
+        $result = [];
+        exec('tail -n 30 ' . __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Runtime' . DIRECTORY_SEPARATOR . 'cron.log', $result);
+        $response->header('Content-Type', 'text/html;charset=utf-8');
+        foreach ($result as $item) {
+            $response->write($item . '</br>');
+        }
+        $response->end('----------------EOF----------------');
     }
 
     /**

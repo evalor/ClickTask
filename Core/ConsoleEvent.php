@@ -16,7 +16,7 @@ class ConsoleEvent
     {
         $time = date('Y-m-d H:i:s');
         if ($eventName !== '') $eventName = ' ' . $eventName;
-        return "[ {$time}$eventName ] ";
+        return "[{$time}$eventName] ";
     }
 
     /**
