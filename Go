@@ -1,0 +1,29 @@
+#!/usr/bin/env -S-P/usr/local/bin:/usr/bin:${PATH} php
+<?php
+
+// 自动加载处理
+namespace eValor\click;
+
+date_default_timezone_set('Asia/Shanghai');
+require_once 'vendor/autoload.php';
+
+use eValor\click\Account\MaterialFireAccount;
+use eValor\click\Core\ConsoleWrite;
+use eValor\click\Core\Cron;
+use eValor\click\Core\Swoole;
+use eValor\click\Runner\MaterialFire;
+
+// 欢迎界面
+ConsoleWrite::terminal_reset();
+ConsoleWrite::color("--------------------------------------\n");
+ConsoleWrite::color(" 自动签到助手 \n", ConsoleWrite::F_BLUE);
+ConsoleWrite::color(" 启动时间: " . date('Y-m-d H:i:s') . PHP_EOL, ConsoleWrite::F_GREEN);
+ConsoleWrite::color("--------------------------------------\n");
+
+// 计划任务编排
+$CronClass = new Cron;
+$MaterialFire = new MaterialFire(new MaterialFireAccount);
+$CronClass->addCronTask('MaterialFire', '*/1 * * * *', $MaterialFire);
+
+// 启动
+(new Swoole)->run($CronClass);
