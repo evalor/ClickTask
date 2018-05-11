@@ -1,22 +1,26 @@
 #!/usr/bin/env -S-P/usr/local/bin:/usr/bin:${PATH} php
 <?php
 
-// 自动加载处理
 namespace eValor\cronTask;
 
-use eValor\cronTask\Core\ConsoleWrite;
 use eValor\cronTask\Core\Swoole;
+use eValor\cronTask\Core\ConsoleWrite;
+use eValor\cronTask\Core\Utils\Locale;
 
 date_default_timezone_set('Asia/Shanghai');
 
+// 自动加载处理
 $loader = require_once 'vendor/autoload.php';
 $loader->addPsr4('eValor\\cronTask\\', __DIR__ . DIRECTORY_SEPARATOR);
+
+// I18N 初始化
+Locale::set();
 
 // 欢迎界面
 ConsoleWrite::terminal_reset();
 ConsoleWrite::color("--------------------------------------\n");
-ConsoleWrite::color(" 自动签到助手 \n", ConsoleWrite::F_BLUE);
-ConsoleWrite::color(" 启动时间: " . date('Y-m-d H:i:s') . PHP_EOL, ConsoleWrite::F_GREEN);
+ConsoleWrite::color(' ' . Locale::translate('auto check in assistant') . "\n", ConsoleWrite::F_BLUE);
+ConsoleWrite::color(' ' . Locale::translate('start time') . ": " . date('Y-m-d H:i:s') . PHP_EOL, ConsoleWrite::F_GREEN);
 ConsoleWrite::color("--------------------------------------\n");
 
 // 启动
