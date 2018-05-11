@@ -40,7 +40,7 @@ class Cron
                 throw new \Exception('the task ' . $taskName . ' must be instanceof CronRunner class');
             }
 
-            ConsoleWrite::color("[ REGISTER ] 将于 {$next} 执行签到脚本 {$taskName}\n", ConsoleWrite::F_BLUE);
+            ConsoleEvent::REGISTER($next, $taskName);
             $this->tasks[$taskName] = [
                 'name' => $taskName,
                 'rule' => $rule,
@@ -78,7 +78,7 @@ class Cron
                 if (!empty($allToDo)) {
                     // 延迟到目标时间执行
                     foreach ($allToDo as $task) {
-                        ConsoleWrite::color('[ ' . date('Y-m-d H:i:s') . ' ]' . '[ TASK ] 正在延时投递签到任务 ' . $task['name'] . ' 将于 ' . $task['sec'] . ' 秒后被执行..' . PHP_EOL, ConsoleWrite::F_BLUE);
+                        ConsoleEvent::DELIVER($task['sec'], $task['name']);
                         swoole_timer_after($task['sec'] * 1000, function () use ($task) {
                             (new \swoole_process(function () use ($task) {
                                 $taskObject = $task['task'];

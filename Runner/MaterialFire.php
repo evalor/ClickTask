@@ -4,6 +4,7 @@ namespace eValor\cronTask\Runner;
 
 use eValor\cronTask\Account\MaterialFireAccount;
 use eValor\cronTask\Core\AbstractClass\CronRunner;
+use eValor\cronTask\Core\ConsoleEvent;
 use eValor\cronTask\Core\ConsoleWrite;
 use eValor\cronTask\Core\Curl\Field;
 use eValor\cronTask\Core\Curl\Headers;
@@ -48,7 +49,7 @@ class MaterialFire extends CronRunner
             ->exec();
 
         if (!$enter = json_decode($response->getBody())) throw new \Exception('响应解析失败: ' . $response->getBody());
-        if ($enter->error !== '') throw new \Exception('签到失败: ' . $enter->error);
+        if ($enter->error !== '') throw new \Exception($enter->error);
         $cookies = $response->getCookies();
 
         // 请求换取签到令牌
@@ -80,7 +81,7 @@ class MaterialFire extends CronRunner
      */
     function onException(\Throwable $throwable)
     {
-        ConsoleWrite::color($this->time() . '[ MaterialFire ] ' . $throwable->getMessage() . PHP_EOL, ConsoleWrite::F_RED);
+        ConsoleEvent::TASKERR('MaterialFire', $throwable->getMessage());
     }
 
     /**

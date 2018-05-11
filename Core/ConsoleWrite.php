@@ -185,4 +185,17 @@ class ConsoleWrite
         $colors = rtrim($colors, ';') . 'm';
         echo "{$colors}{$content}\e[0m";
     }
+
+    /**
+     * 以闭包模式 获取即将输出的字符串
+     * @param \Closure $closure
+     * @author : evalor <master@evalor.cn>
+     * @return string
+     */
+    static function closure(\Closure $closure)
+    {
+        ob_start();
+        $closure(new ConsoleWrite);
+        return ob_get_clean();
+    }
 }
